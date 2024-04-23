@@ -1,32 +1,32 @@
 import argparse
 
-from gpx import GPXTrack
-from medat import load_from_dat_file
+from dat_to_gpx import dat_to_gpx
+from gpx_to_dat import gpx_to_dat
 
 
 def main():
-    desc = "Convert Maps.me gps_track.dat files to GPX format."
-    parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument(
-        "input_file", metavar="IN", help="Input file (Maps.me .dat format)"
+    parser = argparse.ArgumentParser(
+        description="Convert Organic Maps gps_track.dat file to GPX or vice versa."
     )
-    parser.add_argument("output_file", metavar="OUT",
-                        help="Output file (GPX format)")
+
     parser.add_argument(
-        "-p",
-        "--pretty-xml",
-        action="store_true",
-        help="Generate pretty XML with indentation",
+        "input_file",
+        help="Input file (Organic Maps gps_track.dat)",
+        metavar="IN",
+    )
+
+    parser.add_argument(
+        "output_file",
+        help="Output file (GPX format)",
+        metavar="OUT",
     )
 
     args = parser.parse_args()
 
-    with open(args.input_file, "rb") as inputfile:
-        points = load_from_dat_file(inputfile)
-
-    track = GPXTrack(*points)
-    with open(args.output_file, "w") as outputfile:
-        track.write(outputfile, pretty=args.pretty_xml)
+    if args.input_file.endswith("gpx"):
+        gpx_to_dat(args.input_file, args.output_file)
+    else:
+        dat_to_gpx(args.input_file, args.output_file)
 
 
 if __name__ == "__main__":
