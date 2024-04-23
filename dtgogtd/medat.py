@@ -5,7 +5,7 @@ import struct
 from enum import Enum
 
 # Global values, might change if maps.me modifies their format.
-POINT_PATTERN = '<ddddddddB'
+POINT_PATTERN = "<ddddddddB"
 POINT_PACK_SIZE = struct.calcsize(POINT_PATTERN)
 HEADER_SIZE = 4
 
@@ -19,16 +19,20 @@ class PointSource(Enum):
     EPredictor = 5
 
 
-Point = namedtuple("Point", ('timestamp',
-                             'latitude',
-                             'longitude',
-                             'altitude',
-                             'speed',
-                             'bearing',
-                             'horizontalAccuracy',
-                             'verticalAccuracy',
-                             'source')
-                   )
+Point = namedtuple(
+    "Point",
+    (
+        "timestamp",
+        "latitude",
+        "longitude",
+        "altitude",
+        "speed",
+        "bearing",
+        "horizontalAccuracy",
+        "verticalAccuracy",
+        "source",
+    ),
+)
 
 
 def make_point(raw_point):

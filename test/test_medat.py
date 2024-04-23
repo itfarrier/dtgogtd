@@ -9,7 +9,7 @@ HERE = path.dirname(path.abspath(__file__))
 class TestMedat(TestCase):
 
     def test_load_from_dat_file(self):
-        with open(path.join(HERE, 'gps_track.dat'), 'rb') as f:
+        with open(path.join(HERE, "gps_track.dat"), "rb") as f:
             points = list(load_from_dat_file(f))
         self.assertEqual(len(points), 8064)
         self.assertEqual(points[0].timestamp, 1493487365)
