@@ -45,4 +45,6 @@ class GPXTrack(object):
         # Reset to start of string, so minidom can read it...
         rough_string.seek(0)
         reparsed = minidom.parse(rough_string)
-        return reparsed.toprettyxml(indent="  ")
+
+        # remove xml declaration like in here https://stackoverflow.com/a/65516230
+        return reparsed.childNodes[0].toprettyxml(indent="  ")
