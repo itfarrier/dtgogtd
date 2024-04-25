@@ -9,7 +9,7 @@ NS = "http://www.topografix.com/GPX/1/1"
 class GPXTrack(object):
 
     def __init__(self, *points):
-        self.root = ET.Element("gpx", creator="me2gpx", version="1.1", xmlns=NS)
+        self.root = ET.Element("gpx", xmlns=NS)
         self.trk = ET.SubElement(self.root, "trk")
         self.track_segment(points)
 
