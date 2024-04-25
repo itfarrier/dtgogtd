@@ -34,7 +34,10 @@ class GPXTrack(object):
         if pretty:
             filehandle.write(self.pretty())
         else:
-            ET.ElementTree(self.root).write(filehandle, encoding="unicode")
+            ET.ElementTree(self.root).write(
+                filehandle,
+                encoding="unicode",
+            )
 
     def pretty(self):
         rough_string = StringIO()
