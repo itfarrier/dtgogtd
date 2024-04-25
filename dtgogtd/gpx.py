@@ -1,6 +1,6 @@
 from datetime import datetime
 from io import StringIO
-from xml.etree import cElementTree as ET
+from xml.etree import ElementTree as ET
 from xml.dom import minidom
 
 NS = "http://www.topografix.com/GPX/1/1"
