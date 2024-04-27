@@ -23,11 +23,20 @@ class GPXTrack(object):
         pt = ET.SubElement(
             segment, "trkpt", lat=str(pnt.latitude), lon=str(pnt.longitude)
         )
+
+        course = ET.SubElement(pt, "course")
+        course.text = str(pnt.bearing)
         ele = ET.SubElement(pt, "ele")
         ele.text = str(pnt.altitude)
+        hdop = ET.SubElement(pt, "hdop")
+        hdop.text = str(pnt.horizontalAccuracy)
+        speed = ET.SubElement(pt, "speed")
+        speed.text = str(pnt.speedMpS)
         time = ET.SubElement(pt, "time")
-        dt = datetime.fromtimestamp(pnt.timestamp)
-        time.text = dt.isoformat()
+        time.text = datetime.fromtimestamp(pnt.timestamp).isoformat()
+        vdop = ET.SubElement(pt, "vdop")
+        vdop.text = str(pnt.verticalAccuracy)
+
         return pt
 
     def write(self, filehandle, pretty=False):
