@@ -11,12 +11,15 @@ HEADER_SIZE = 4
 
 
 class PointSource(Enum):
-    EAppleNative = 0
-    EWindowsNative = 1
-    EAndroidNative = 2
-    EGoogle = 3
-    ETizen = 4
-    EPredictor = 5
+    EUndefined = 0
+    EAppleNative = 1
+    EWindowsNative = 2
+    EAndroidNative = 3
+    EGoogle = 4
+    ETizen = 5
+    EGeoClue2 = 6
+    EPredictor = 7
+    EUser = 8
 
 
 Point = namedtuple(
@@ -26,7 +29,7 @@ Point = namedtuple(
         "latitude",
         "longitude",
         "altitude",
-        "speed",
+        "speedMpS",
         "bearing",
         "horizontalAccuracy",
         "verticalAccuracy",
@@ -45,4 +48,6 @@ def load_from_dat_file(filehandle):
     start = HEADER_SIZE
     end = HEADER_SIZE + (POINT_PACK_SIZE * data_len) // POINT_PACK_SIZE
     raw_points = data_input[start:end]
-    return map(make_point, struct.iter_unpack(POINT_PATTERN, raw_points))
+    points = map(make_point, struct.iter_unpack(POINT_PATTERN, raw_points))
+
+    return points

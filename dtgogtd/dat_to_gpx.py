@@ -1,5 +1,5 @@
 from gpx import GPXTrack
-from medat import load_from_dat_file
+from unpack_from_dat import load_from_dat_file
 
 
 def dat_to_gpx(input_file, output_file):

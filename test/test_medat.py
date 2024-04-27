@@ -1,7 +1,7 @@
 from os import path
 from unittest import TestCase
 
-from dtgogtd.medat import load_from_dat_file, make_point, PointSource
+from unpack_from_dat import load_from_dat_file, make_point, PointSource
 
 HERE = path.dirname(path.abspath(__file__))
 
