@@ -1,7 +1,8 @@
 from os import path
 from unittest import TestCase
 
-from unpack_from_dat import load_from_dat_file, make_point, PointSource
+from constants import LocationSource
+from unpack_from_dat import load_from_dat_file, make_point
 
 HERE = path.dirname(path.abspath(__file__))
 
@@ -20,4 +21,4 @@ class TestMedat(TestCase):
         dummy = tuple(range(9, 0, -1))
         point = make_point(dummy)
         self.assertEqual(dummy[:8], point[:8])
-        self.assertEqual(point.source, PointSource.EWindowsNative)
+        self.assertEqual(point.source, LocationSource.EWindowsNative)
