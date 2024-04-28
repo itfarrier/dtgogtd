@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-
-from setuptools import setup
-
-with open("test_requirements.txt") as f:
-    test_requirements = f.readlines()
-
-setup(
-    name="dtgogtd",
-    version="0.0.1",
-    description="DAT to GPX or GPX to DAT",
-    author="Dzmitry Padabed",
-    author_email="itfarrier@icloud.com",
-    url="https://github.com/itfarrier/dtgogtd",
-    packages=["dtgogtd"],
-    test_suite="test.test_suite",
-    tests_require=test_requirements,
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:bb87d43c179ce719b761a601ebd600228364106141b5dc097f8792cd55347271
+size 443

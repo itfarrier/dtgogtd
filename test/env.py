@@ -1,7 +1,3 @@
-import sys
-from os import path
-
-# Add dtgogtd to python path so tests can import the code they need to exercise.
-package_path = path.abspath(path.dirname(path.dirname(__file__)))
-
-sys.path.append(package_path)
+version https://git-lfs.github.com/spec/v1
+oid sha256:3917a2a0bf085cbdb2a2eecac56de78b000d0fc07d9f7cb6220ca41ea3345456
+size 210
